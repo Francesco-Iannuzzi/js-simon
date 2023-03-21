@@ -16,3 +16,21 @@ Bonus:
 Invece di usare prompt e allerte usate inputs ed elementi della dom per mostrare a schermo il risultato.
 
 */
+
+/*
+
+Tools:
+- const / let
+- prompt
+- alert
+- for / while
+- Math (random / ceil / floor)
+- addEventListener
+- function
+- timing function
+- setInterval / clearInterval
+- setTimeout / clearTimeout
+
+*/
+
+

@@ -81,6 +81,7 @@ function removeElement() {
     h1Element.innerHTML = ``;
 }
 
+/*
 //selezionare il button nella DOM e salvarlo in una variabile
 const buttonEl = document.getElementById('submit');
 
@@ -114,3 +115,25 @@ buttonEl.addEventListener('click', function(){
 
     //indicare quanti e quali numeri sono stati individuati
 })
+*/
+
+//imposto un nuovo setTimeout così da far comparire i prompt per inserire i numeri dopo scomparsi quelli a schermo
+setTimeout(askNumber, 30100);
+function askNumber() {
+    //chiedo per 5 volte di inserire un numero
+    for (let i = 0; i < 5; i++) {
+        let userNumber = Number(prompt('Inserisci un numero'))
+        userNumberArray.push(userNumber)
+
+        //se il numero indicato è uguale ad uno dei numeri generati lo logghiamo in console e lo indichiamo all'utente
+        if (numberDesk.includes(userNumber)) {
+            console.log('Ha individuato il numero:' ,userNumber);
+
+            //altrimenti diciamo all'utente che il numero inserito non era presente
+        } else {
+            console.log('Mi dispiace il numero inserito non era presente');
+        }
+    }
+
+}
+

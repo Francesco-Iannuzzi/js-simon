@@ -38,42 +38,51 @@ Tools:
 const numberDesk = [];
 
 //definire un array che contenga i  numeri scelti dall'utente
-const numberUserChoice = [];
+const numbersUserChoice = [];
 
 //creare una funzione che generi 5 numeri casuali
 function generateNumber(maxNumb) {
 
-    for (var i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         let numberGenerated = Math.floor(Math.random() * maxNumb) + 1;
+
         //pushare i numeri nell'array
         numberDesk.push(numberGenerated);
     }
-    return numberDesk;
 }
 
 //scegliere il range massimo del numero casuale
 generateNumber(100);
 console.log(numberDesk);
 
-//creare un alert che mostri in pagina i 5 numeri generati
-alert(numberDesk);
+//selezionare l'elemento in DOM dove stampare i numeri generati
+const containerEl = document.querySelector('.container');
 
-//creare un loop che chieda tramite un prompt di inserire i cinque numeri precedentemente visti a schermo
-for (let i = 0; i < numberDesk.length; i++) {
-    numberUserChoice.push(Number(prompt('Inserisci uno alla volta i numeri precedentemente presenti in schermata')));
+//stampare nell'elemento selezionato i numeri generati
+//containerEl.insertAdjacentHTML('afterbegin', numberDesk);
 
+
+function printToDomArray(nameArray) {
+    containerEl.insertAdjacentHTML('afterbegin', nameArray);
 }
 
-console.log(numberUserChoice);
+printToDomArray(numberDesk);
+
+setTimeout(function () {
+    containerEl.innerHTML('');
+}, 5000)
+
+/*
+//selezionare il button nella DOM e salvarlo in una variabile
+const buttonEl = document.getElementById('submit');
+
+//creare un addEventListener
+buttonEl.addEventListener('click', function(){
+    let userChoices = document.querySelectorAll('.form-control');
+    console.log(userChoices.value);
+})
 
 //verificare quanti di questi numeri sono stati individuati
-if (numberDesk.includes(numberUserChoice(i))) {
-    console.log('ciao');
-} else {
-    console.log('nessuno');
-}
 
-
-
-//indicare a schermo quanti e quali numeri sono stati individuati
-
+//indicare quanti e quali numeri sono stati individuati
+*/

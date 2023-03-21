@@ -38,7 +38,7 @@ Tools:
 const numberDesk = [];
 
 //definire un array che contenga i  numeri scelti dall'utente
-const numbersUserChoice = [];
+const userNumberArray = [];
 
 //creare una funzione che generi 5 numeri casuali
 function generateNumber(maxNumb) {
@@ -53,36 +53,48 @@ function generateNumber(maxNumb) {
 
 //scegliere il range massimo del numero casuale
 generateNumber(100);
-console.log(numberDesk);
-
-//selezionare l'elemento in DOM dove stampare i numeri generati
-const containerEl = document.querySelector('.container');
-
-//stampare nell'elemento selezionato i numeri generati
-//containerEl.insertAdjacentHTML('afterbegin', numberDesk);
 
 
-function printToDomArray(nameArray) {
-    containerEl.insertAdjacentHTML('afterbegin', nameArray);
+function loopArray(nameArray) {
+    for (let i = 0; i < nameArray.length; i++) {
+        let numberToFind = numberDesk[i];
+        console.log(numberToFind);
+    }
+
 }
 
-printToDomArray(numberDesk);
+loopArray(numberDesk);
 
-setTimeout(function () {
-    containerEl.innerHTML('');
-}, 5000)
 
-/*
+//selezionare l'elemento in DOM dove stampare i numeri generati
+const h1Element = document.querySelector('.number_ghost');
+
+//stampare nell'elemento selezionato i numeri generati
+h1Element.insertAdjacentHTML('afterbegin', numberDesk);
+
+
+setTimeout(removeElement, 30000);
+function removeElement() {
+    h1Element.innerHTML = ``;
+}
+
 //selezionare il button nella DOM e salvarlo in una variabile
 const buttonEl = document.getElementById('submit');
 
-//creare un addEventListener
+//creare un addEventListener per recuperare i valori degli input
 buttonEl.addEventListener('click', function(){
-    let userChoices = document.querySelectorAll('.form-control');
-    console.log(userChoices.value);
+    const number1 = document.getElementById('number1').value;
+    const number2 = document.getElementById('number2').value;
+    const number3 = document.getElementById('number3').value;
+    const number4 = document.getElementById('number4').value;
+    const number5 = document.getElementById('number5').value;
+
+    //passo i numeri scelti dall'utente all'array di riferimento
+    userNumberArray.push(number1, number2, number3, number4, number5);
+
+    console.log(userNumberArray);
+
+    //verificare quanti di questi numeri sono stati individuati
+  
+    //indicare quanti e quali numeri sono stati individuati
 })
-
-//verificare quanti di questi numeri sono stati individuati
-
-//indicare quanti e quali numeri sono stati individuati
-*/

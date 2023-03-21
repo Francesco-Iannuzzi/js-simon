@@ -34,13 +34,46 @@ Tools:
 
 */
 
-//definire un array che contenga i numeri generati in un secondo momento
-//creare un ciclo for che generi 5 numeri casuali
-//generare 5 numeri casuali da 1 a 100 e pusharli nell'array
+//definire un array che contenga i numeri generati in un secondo moment
+const numberDesk = [];
+
+//definire un array che contenga i  numeri scelti dall'utente
+const numberUserChoice = [];
+
+//creare una funzione che generi 5 numeri casuali
+function generateNumber(maxNumb) {
+
+    for (var i = 0; i < 5; i++) {
+        let numberGenerated = Math.floor(Math.random() * maxNumb) + 1;
+        //pushare i numeri nell'array
+        numberDesk.push(numberGenerated);
+    }
+    return numberDesk;
+}
+
+//scegliere il range massimo del numero casuale
+generateNumber(100);
+console.log(numberDesk);
+
 //creare un alert che mostri in pagina i 5 numeri generati
-//creare una timing function che mostri i numeri a dopo tot millisecondi
-//interrompere la timing function con un clearInterval o clearTimeout dopo 30 secondi
+alert(numberDesk);
+
 //creare un loop che chieda tramite un prompt di inserire i cinque numeri precedentemente visti a schermo
+for (let i = 0; i < numberDesk.length; i++) {
+    numberUserChoice.push(Number(prompt('Inserisci uno alla volta i numeri precedentemente presenti in schermata')));
+
+}
+
+console.log(numberUserChoice);
+
 //verificare quanti di questi numeri sono stati individuati
+if (numberDesk.includes(numberUserChoice(i))) {
+    console.log('ciao');
+} else {
+    console.log('nessuno');
+}
+
+
+
 //indicare a schermo quanti e quali numeri sono stati individuati
 

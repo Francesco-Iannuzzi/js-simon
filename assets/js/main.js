@@ -49,7 +49,9 @@ function generateNumber(maxNumb) {
         //pushare i numeri nell'array
         numberDesk.push(numberGenerated);
     }
+
 }
+
 
 //scegliere il range massimo del numero casuale
 generateNumber(100);
@@ -62,6 +64,7 @@ function loopArray(nameArray) {
     }
 
 }
+
 
 loopArray(numberDesk);
 
@@ -94,7 +97,20 @@ buttonEl.addEventListener('click', function(){
 
     console.log(userNumberArray);
 
-    //verificare quanti di questi numeri sono stati individuati
-  
+    //verificare se e quanti di questi numeri sono stati individuati
+    if (numberDesk.includes(number1)) {
+        console.log('il primo numero era presente');
+    } else if (numberDesk.includes(number2)){
+        console.log('il secondo numero era presente');
+    } else if (numberDesk.includes(number3)){
+        console.log('il terzo numero era presente');
+    } else if (numberDesk.includes(number4)){
+        console.log('il quarto numero era presente');
+    } else if (numberDesk.includes(number5)){
+        console.log('il quinto numero era presente');
+    } else {
+        console.log('il numero non era presente');
+    }
+
     //indicare quanti e quali numeri sono stati individuati
 })

@@ -40,6 +40,9 @@ const numberDesk = [];
 //definire un array che contenga i  numeri scelti dall'utente
 const userNumberArray = [];
 
+//definisco una variabile per il conteggio dei numeri individuati
+let identifiedNumbers = 0;
+
 //creare una funzione che generi 5 numeri casuali
 function generateNumber(maxNumb) {
 
@@ -122,17 +125,25 @@ setTimeout(askNumber, 30100);
 function askNumber() {
     //chiedo per 5 volte di inserire un numero
     for (let i = 0; i < 5; i++) {
-        let userNumber = Number(prompt('Inserisci un numero'))
-        userNumberArray.push(userNumber)
+        let userNumber = Number(prompt('Inserisci un numero'));
+        userNumberArray.push(userNumber);
+
 
         //se il numero indicato è uguale ad uno dei numeri generati lo logghiamo in console e lo indichiamo all'utente
         if (numberDesk.includes(userNumber)) {
-            console.log('Ha individuato il numero:' ,userNumber);
+            console.log('Ha individuato il numero:', userNumber);
+
+            //aumento il conteggio dei numeri individuati
+            identifiedNumbers++;
+            
 
             //altrimenti diciamo all'utente che il numero inserito non era presente
         } else {
             console.log('Mi dispiace il numero inserito non era presente');
         }
+
+        //mostro il conteggio dei numeri individuati
+        console.log('Hai inviduato:', identifiedNumbers , 'numeri');
     }
 
 }

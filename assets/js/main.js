@@ -44,7 +44,7 @@ function generateNumber() {
     const numberDesk = []
     while (numberDesk.length < 5) {
         const numberGenerated = Math.floor(Math.random() * 100) + 1;
-        if(!numberDesk.includes(numberGenerated)){
+        if (!numberDesk.includes(numberGenerated)) {
             //pushare i numeri nell'array
             numberDesk.push(numberGenerated);
         }
@@ -86,36 +86,36 @@ function removeElement() {
 //imposto un nuovo setTimeout così da far comparire i prompt per inserire i numeri dopo scomparsi quelli a schermo
 setTimeout(askNumber, 30100);
 function askNumber() {
-        
+
     //definire un array che contenga i  numeri scelti dall'utente
     const userNumberArray = [];
     //chiedo di inserire un numero finché non si scelgono 5 numeri diversi
     while (userNumberArray.length < 5) {
         let userNumber = Number(prompt('Inserisci un numero'));
         //userNumberArray.push(userNumber);
-        
+
         if (!userNumberArray.includes(userNumber)) {
             userNumberArray.push(userNumber);
+            //se il numero indicato è uguale ad uno dei numeri generati lo logghiamo in console e lo indichiamo all'utente
+            if (numberDesk.includes(userNumber)) {
+                console.log('Ha individuato il numero:', userNumber);
+
+                //aumento il conteggio dei numeri individuati
+                identifiedNumbers++;
+
+
+                //altrimenti diciamo all'utente che il numero inserito non era presente
+            } else {
+                console.log('Mi dispiace il numero inserito non era presente');
+            }
         } else {
             alert('Devi inserire un numero differente da quelli precedentemente inseriti')
         }
-        
-        //se il numero indicato è uguale ad uno dei numeri generati lo logghiamo in console e lo indichiamo all'utente
-        if (numberDesk.includes(userNumber)) {
-            console.log('Ha individuato il numero:', userNumber);
-            
-            //aumento il conteggio dei numeri individuati
-            identifiedNumbers++;
-            
-            
-            //altrimenti diciamo all'utente che il numero inserito non era presente
-        } else {
-            console.log('Mi dispiace il numero inserito non era presente');
-        }
-        
+
+
         //mostro il conteggio dei numeri individuati in schermata
-        h2Element.innerHTML = `Hai inviduato: ${identifiedNumbers} numeri`;       
-        
+        h2Element.innerHTML = `Hai inviduato: ${identifiedNumbers} numeri`;
+
     }
-    
+
 }
